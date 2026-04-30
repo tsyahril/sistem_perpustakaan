@@ -1,0 +1,117 @@
+/* Reset & Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --biru-tua: #1e3a8a;
+    --biru-muda: #3b82f6;
+    --bg-light: #f8fafc;
+    --text-main: #334155;
+}
+
+body {
+    background-color: var(--bg-light);
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: var(--biru-tua);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar-header {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a {
+    color: #cbd5e1;
+    text-decoration: none;
+    display: block;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+    background-color: var(--biru-muda);
+    color: white;
+}
+
+.logout-item {
+    margin-top: 50px;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex: 1;
+    margin-left: 260px; /* Jarak agar tidak tertutup sidebar */
+    padding: 20px;
+}
+
+.top-header {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.welcome-banner {
+    background: linear-gradient(135deg, var(--biru-tua), var(--biru-muda));
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-bottom: 4px solid var(--biru-muda);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card span {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    color: var(--biru-tua);
+    margin-top: 5px;
+}

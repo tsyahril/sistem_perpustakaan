@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+
+    /* GRADIASI HIJAU TUA */
+    background: linear-gradient(135deg, #170f3d, #5e548a, #bfbbd8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.login-card {
+    background: rgba(21, 24, 204, 0.425);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 380px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(13, 2, 29, 0.699);
+}
+
+.title-login {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Input */
+.form-control {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+}
+
+.form-control:focus {
+    background: rgba(255,255,255,0.25);
+    box-shadow: none;
+    color: white;
+}
+
+/* Placeholder */
+.form-control::placeholder {
+    color: #ccc;
+}
+
+/* Input group */
+.input-group-text {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Button */
+.btn-primary {
+    border-radius: 30px;
+    background: linear-gradient(90deg, #230786, #622dc4);
+    border: none;
+    font-weight: bold;
+}
+
+/* Hover */
+.btn-primary:hover {
+    background: linear-gradient(90deg, #190e31, #661a66);
+}
+
+/* Link */
+a {
+    color: #24b3ec;
+}
+
+/* Label */
+label {
+    font-size: 14px;
+}
