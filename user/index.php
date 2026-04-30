@@ -1,53 +1,41 @@
-<?php include '../middleware/user.php'; ?>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard - Perpustakaan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/user.css">
-</head>
-<body>
+<?php 
+include '../middleware/user.php';
+include 'layouts/header.php'; 
 
-    <div class="wrapper">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>E-Perpus</h3>
-            </div>
-            <ul class="sidebar-menu">
-                <li><a href="index.php" class="active"> Dashboard</a></li>
-                <li><a href="buku.php"> Cari Buku</a></li>
-                <li><a href="riwayat.php"> Riwayat Pinjam</a></li>
-                <li class="logout-item"><a href="../auth/logout.php"> Logout</a></li>
-            </ul>
-        </aside>
+// Simulasi ambil data dari database
+$kategori = ["Disarankan untuk Anda", "Buku Bestseller", "Bisnis & Investasi"];
+?>
 
-        <main class="main-content">
-            <header class="top-header">
-                <h2>Dashboard</h2>
-                <div class="user-info">User Aktif</div>
-            </header>
-
-            <div class="content-body">
-                <div class="welcome-banner">
-                    <h1>Halo, Selamat Datang </h1>
-                    <p>Sistem Informasi Perpustakaan Digital</p>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="card">
-                        <span>Total Buku</span>
-                        <h3>120</h3>
-                    </div>
-                    <div class="card">
-                        <span>Sedang Dipinjam</span>
-                        <h3>2</h3>
-                    </div>
-                </div>
-            </div>
-        </main>
+<div class="dashboard-header">
+    <div class="tabs">
+        <button class="tab-btn active">Untuk Anda</button>
+        <button class="tab-btn">Terlaris</button>
+        <button class="tab-btn">Rilis Baru</button>
     </div>
+</div>
 
-</body>
-</html>
+<?php foreach($kategori as $kat): ?>
+<section class="book-section">
+    <div class="section-header">
+        <h2><?= $kat ?></h2>
+        <a href="buku.php">Lihat semua <i class='bx bx-chevron-right'></i></a>
+    </div>
+    <div class="book-grid">
+        <?php for($i=1; $i<=5; $i++): ?>
+        <div class="book-card">
+            <div class="book-cover">
+                <img src="https://via.placeholder.com/150x220" alt="Cover Buku">
+                <div class="rating-badge"><i class='bx bxs-star'></i> 4.5</div>
+            </div>
+            <div class="book-info">
+                <h3>Judul Buku Contoh <?= $i ?></h3>
+                <p>Penulis Buku</p>
+                <span class="price">Gratis</span>
+            </div>
+        </div>
+        <?php endfor; ?>
+    </div>
+</section>
+<?php endforeach; ?>
+
+<?php include 'layouts/footer.php'; ?>

@@ -1,117 +1,65 @@
-/* Reset & Global */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-
 :root {
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --sidebar-color: #181818;
     --biru-tua: #1e3a8a;
     --biru-muda: #3b82f6;
-    --bg-light: #f8fafc;
-    --text-main: #334155;
+    --text-white: #ffffff;
+    --text-gray: #b3b3b3;
 }
 
-body {
-    background-color: var(--bg-light);
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-.wrapper {
-    display: flex;
-    min-height: 100vh;
-}
+body { background-color: var(--bg-dark); color: var(--text-white); }
 
-/* Sidebar Styling */
+.app-container { display: flex; }
+
+/* SIDEBAR */
 .sidebar {
-    width: 260px;
-    background-color: var(--biru-tua);
-    color: white;
-    padding: 20px;
-    position: fixed;
-    height: 100%;
+    width: 240px; height: 100vh; background: var(--sidebar-color);
+    position: fixed; padding: 20px; border-right: 1px solid #333;
 }
+.sidebar-logo { font-size: 24px; font-weight: 700; color: var(--biru-muda); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
+.nav-item { 
+    display: flex; align-items: center; gap: 15px; padding: 12px;
+    color: var(--text-gray); text-decoration: none; border-radius: 10px; margin-bottom: 5px;
+}
+.nav-item.active, .nav-item:hover { background: rgba(59, 130, 246, 0.1); color: var(--biru-muda); }
+.nav-item.logout:hover { color: #ff4d4d; background: rgba(255, 77, 77, 0.1); }
 
-.sidebar-header {
-    padding: 20px 0;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 20px;
+/* MAIN CONTENT */
+.main-content { flex: 1; margin-left: 240px; }
+.navbar {
+    padding: 15px 40px; display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(10px); z-index: 100;
 }
+.search-container {
+    background: #2a2a2a; padding: 10px 20px; border-radius: 30px; width: 60%;
+    display: flex; align-items: center; gap: 10px;
+}
+.search-container input { background: none; border: none; color: white; width: 100%; outline: none; }
+.user-profile img { width: 40px; border-radius: 50%; border: 2px solid var(--biru-muda); }
 
-.sidebar-menu {
-    list-style: none;
-}
+/* BOOK GRID (Gaya Google Play Books) */
+.content-wrapper { padding: 20px 40px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; margin-top: 30px; }
+.section-header h2 { font-size: 20px; }
+.section-header a { color: var(--biru-muda); text-decoration: none; font-size: 14px; }
 
-.sidebar-menu li {
-    margin-bottom: 10px;
+.book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
+.book-card { cursor: pointer; transition: 0.3s; }
+.book-card:hover { transform: translateY(-5px); }
+.book-cover { position: relative; border-radius: 12px; overflow: hidden; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.book-cover img { width: 100%; height: 240px; object-fit: cover; }
+.rating-badge { 
+    position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); 
+    padding: 4px 8px; border-radius: 6px; font-size: 12px; color: #ffcc00;
 }
+.book-info h3 { font-size: 14px; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.book-info p { font-size: 12px; color: var(--text-gray); }
+.price { font-size: 13px; color: var(--biru-muda); font-weight: 600; margin-top: 5px; display: block; }
 
-.sidebar-menu a {
-    color: #cbd5e1;
-    text-decoration: none;
-    display: block;
-    padding: 12px 15px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.sidebar-menu a:hover, .sidebar-menu a.active {
-    background-color: var(--biru-muda);
-    color: white;
-}
-
-.logout-item {
-    margin-top: 50px;
-}
-
-/* Main Content Styling */
-.main-content {
-    flex: 1;
-    margin-left: 260px; /* Jarak agar tidak tertutup sidebar */
-    padding: 20px;
-}
-
-.top-header {
-    background: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
-}
-
-.welcome-banner {
-    background: linear-gradient(135deg, var(--biru-tua), var(--biru-muda));
-    color: white;
-    padding: 40px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    border-bottom: 4px solid var(--biru-muda);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.card span {
-    color: #64748b;
-    font-size: 0.9rem;
-}
-
-.card h3 {
-    font-size: 1.8rem;
-    color: var(--biru-tua);
-    margin-top: 5px;
-}
+/* TABS */
+.tabs { display: flex; gap: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; color: var(--text-gray); cursor: pointer; font-size: 15px; padding-bottom: 10px; }
+.tab-btn.active { color: var(--biru-muda); border-bottom: 2px solid var(--biru-muda); }
