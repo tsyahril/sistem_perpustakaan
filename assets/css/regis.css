@@ -1,0 +1,136 @@
+/* assets/css/login.css */
+
+:root {
+    --bg-dark: #0f172a;       /* Dark Navy */
+    --card-dark: #1e293b;     /* Lighter Navy */
+    --biru-muda: #3b82f6;     /* Primary Blue */
+    --text-white: #f8fafc;
+    --text-gray: #94a3b8;
+    --error: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body.auth-page {
+    background-color: var(--bg-dark);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    background-image: radial-gradient(circle at top right, #1e3a8a, transparent);
+}
+
+.auth-card {
+    background: var(--card-dark);
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 8px;
+}
+
+.auth-header p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* Input Styling */
+.input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray);
+    font-size: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 48px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--biru-muda);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+/* Button Styling */
+.btn-auth {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.btn-auth:active {
+    transform: translateY(0);
+}
+
+/* Footer Link */
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.auth-footer a {
+    color: var(--biru-muda);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+}

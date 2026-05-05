@@ -76,7 +76,7 @@ if (isset($_POST['login'])) {
                 <button name="login" class="btn btn-primary w-100">Login</button>
 
                 <p class="text-center mt-3">
-                    Belum punya akun? <a href="register.php">Daftar</a>
+                    Belum punya akun? <a href="../auth/regis.php">Daftar</a>
                 </p>
 
             </form>
