@@ -76,3 +76,25 @@ body { background-color: var(--bg-dark); color: var(--text-white); }
     text-decoration: none;
     font-size: 14px;
 }
+
+/* Gaya dasar menu */
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #94a3b8;
+    text-decoration: none;
+    gap: 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Gaya menu SAAT AKTIF (Terblok) */
+.nav-item.active {
+    background: rgba(59, 130, 246, 0.15); /* Biru transparan */
+    color: #3b82f6 !important; /* Warna teks biru terang */
+}
+
+.nav-item.active i {
+    color: #3b82f6;
+}

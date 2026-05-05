@@ -2,29 +2,28 @@
 require_once "../config/koneksi.php";
 
 if (isset($_POST['register'])) {
-    // Sanitasi input
-    $nama     = mysqli_real_escape_string($conn, $_POST['nama']);
-    $email    = mysqli_real_escape_string($conn, $_POST['email']);
-    $no_hp    = mysqli_real_escape_string($conn, $_POST['no_hp']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']); 
 
-    // 1. Perbaikan: Cek apakah username atau email sudah terdaftar
-    // Pastikan tanda petik berpasangan '$variable' dan ada kata OR
-    $cek_user = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' OR email = '$email'");
-    
-    if (mysqli_num_rows($cek_user) > 0) {
-        echo "<script>alert('Username atau Email sudah terdaftar!'); window.location='regis.php';</script>";
+    $nama  = $_POST['nama'];
+    $email = $_POST['email'];
+    $no_hp = $_POST['no_hp'];
+    $password = $_POST['password'];
+
+    // cek email saja
+    $cek = mysqli_query($conn, "SELECT * FROM user WHERE email='$email'");
+
+    if (mysqli_num_rows($cek) > 0) {
+        echo "Email sudah terdaftar";
     } else {
-        // 2. Insert data
-        $query = "INSERT INTO user (nama, email, password, role, no_hp, username) 
-                  VALUES ('$nama', '$email', '$password', 'user', '$no_hp', '$username')";
-        
+
+        $query = "INSERT INTO user (nama, email, password, role, no_hp)
+                  VALUES ('$nama','$email','$password','user','$no_hp')";
+
         if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Registrasi Berhasil! Silakan Login'); window.location='login.php';</script>";
+            header("Location: login.php");
+            exit;
         } else {
-            echo "Error: " . mysqli_error($conn);
-        }
+            echo "ERROR: " . mysqli_error($conn);
+        }   
     }
 }
 ?>
