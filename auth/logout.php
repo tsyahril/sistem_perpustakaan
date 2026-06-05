@@ -9,6 +9,8 @@ session_unset();
 session_destroy();
 
 // Arahkan kembali ke halaman login (keluar dari folder auth/ ke root atau tetap di auth/)
+
+$_SESSION['success'] = "Berhasil logout!";
 header("Location: login.php?pesan=logout");
 exit();
 
